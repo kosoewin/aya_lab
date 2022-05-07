@@ -1,0 +1,19 @@
+---
+- hosts: linuxenv
+  become: yes
+  tasks:
+    - name: copy aya.txt to hosts nodes
+      copy:
+        src: aya.txt
+        dest: /opt/
+        owner: ansible
+        group: ansible
+        mode: 0755
+    - name: check if file exist or not
+      stat:
+        path: /opt/aya.txt
+      register: ayatxt
+    - debug:
+        msg: "aya.txt file is copied "
+      when: ayatxt.stat.exists 
+

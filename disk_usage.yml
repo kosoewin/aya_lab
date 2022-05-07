@@ -1,0 +1,8 @@
+---
+- hosts: linuxenv
+  tasks:
+    - name: get the storage
+      command: df -h
+      register: space
+    - debug:
+        var: space.stdout_lines[5]

@@ -1,0 +1,19 @@
+---
+- hosts: linuxenv
+  become: true 
+  tasks:
+    - name: create a new dir
+      file:
+        state: directory
+        path: /opt/aya-automation
+        owner: ansible
+        group: ansible
+        mode: 0775
+    - name: check if dir exist or not
+      stat:
+        path: /opt/aya-automation
+      register: ayafolder
+    - debug:
+        msg: " The directory is created "
+      when: ayafolder.stat.exists and ayafolder.stat.isdir
+    

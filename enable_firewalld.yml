@@ -1,0 +1,12 @@
+---
+- hosts: linuxenv
+  tasks:
+    - name: Ensure firewalld 
+      service:
+        name: firewalld
+        state: started
+      register: firewall
+    - debug: var=firewall.state
+
+      
+

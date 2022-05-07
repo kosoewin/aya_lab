@@ -1,0 +1,16 @@
+---
+- hosts: linuxenv
+  vars:
+    pwd: adminonly
+  tasks:
+    - name: create a new user
+      user:
+        name: lisa
+        password: "{{ pwd | password_hash('sha512')}}"
+        groups:
+          - wheel
+        state: present
+      register: result
+    - debug: var=result
+    
+    

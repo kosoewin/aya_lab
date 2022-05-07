@@ -1,0 +1,9 @@
+---
+- hosts: linuxenv
+  tasks:
+    - name: allow http only
+      firewalld:
+        service: http
+        permanent: yes
+        state: enabled
+        immediate: yes

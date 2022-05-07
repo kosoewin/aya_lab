@@ -1,0 +1,12 @@
+---
+- hosts: linuxenv
+  tasks:
+    - name: Download file with check (md5)
+      get_url:
+         url: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78-fulldocs.tar.gz
+         dest: /opt/
+         owner: ansible
+         group: ansible
+         mode: 0755
+         validate_certs: no
+

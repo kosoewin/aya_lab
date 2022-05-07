@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  vars: 
+    hostname: 172.24.19.10
+    username: root
+    password: Asdf123!
+  tasks:
+  - name: Create a virtual machine on given ESXi hostname
+    community.vmware.vmware_guest:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      folder: /DC1/vm/
+      name: test_vm_0001
+      state: poweredon
+      guest_id: centos64Guest
+      disk:
+      - size_gb: 10
+        type: thin
+        datastore: datastore1
+      hardware:
+        memory_mb: 512
+        num_cpus: 4
+        scsi: paravirtual
+      networks:
+      - name: VM Network
+        mac: aa:bb:dd:aa:00:14
+        ip: 10.10.10.100
+        netmask: 255.255.255.0
+        device_type: vmxnet3
+      wait_for_ip_address: true
+      wait_for_ip_address_timeout: 600
+    delegate_to: localhost
+    register: deploy_vm

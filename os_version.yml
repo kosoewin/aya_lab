@@ -1,0 +1,13 @@
+---
+- hosts: linuxenv
+  tasks:
+    - name: get ip address
+      debug:
+        msg: > 
+          os_family:
+          {{ ansible_os_family }},
+          distro:
+          {{ ansible_distribution }}
+          {{ ansible_distribution_version }},
+          ip_address:
+            {{ ansible_default_ipv4.address }}

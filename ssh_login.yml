@@ -1,0 +1,13 @@
+---
+- hosts: linuxenv
+  tasks:
+  - name: disable ssh root login
+    lineinfile:
+      path: /etc/ssh/sshd_config
+      regex: '^PermitRootLogin'
+      line: 'PermitRootLogin no '
+  - name: restart the sshd
+    service:
+      name: sshd
+      state: restarted
+

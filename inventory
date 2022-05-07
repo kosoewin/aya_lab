@@ -1,0 +1,9 @@
+controlnode.ayalab.local ansible_connection=local
+[linuxenv]
+#node01.ayalab.local
+#node02.ayalab.local
+#node03.ayalab.local
+#node04.ayalab.local
+[winenv]
+node05.ayalab.local
+#192.168.1.11 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant

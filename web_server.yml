@@ -1,0 +1,24 @@
+---
+- hosts: linuxenv
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: present
+    - name: start the httpd
+      service:
+        name: httpd
+        state: restarted
+        enabled: true
+    - name: copy the the index file
+      template:
+        src: files/index.j2
+        dest: /var/www/html/index.html
+      notify: restart_web
+  handlers: 
+  - name: restart_web
+    service:
+      name: httpd
+      state: restarted
+...
+

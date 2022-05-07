@@ -1,0 +1,13 @@
+---
+- hosts: linuxenv
+  tasks:
+    - name: remove a user
+      user:
+        name: lisa
+        state: absent
+        remove: yes
+      register: result
+    - debug: msg=" user has been removed"
+      when: result is succeeded
+...
+    
