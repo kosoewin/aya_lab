@@ -1,0 +1,20 @@
+
+Installing Vagrant 2.2.19
+==========================
+
+For Windows OS
+**************
+https://releases.hashicorp.com/vagrant/2.2.19/vagrant_2.2.19_x86_64.msi
+
+
+For Ubuntu
+**********
+curl -O https://releases.hashicorp.com/vagrant/2.2.19/vagrant_2.2.19_x86_64.deb
+sudo apt install ./vagrant_2.2.9_x86_64.deb
+vagrant --version
+
+
+For Fedora/Centos
+******************
+sudo dnf install https://releases.hashicorp.com/vagrant/2.2.19/vagrant_2.2.19_x86_64.rpm
+vagrant --version
