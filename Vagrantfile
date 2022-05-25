@@ -17,8 +17,8 @@ Vagrant.configure("2") do |config|
     ansiblecontrol.vm.box = "ubuntu/focal64"
     ansiblecontrol.vm.hostname = "ansiblecontrol.ayalab.local"
     ansiblecontrol.vm.network "private_network", ip: "192.168.101.10"
-    ansiblecontrol.vm.provision "shell", path: "bootstrap.sh"
-    ansiblecontrol.vm.provision "file", source: "key_gen.sh", destination: "/home/vagrant/"
+    ansiblecontrol.vm.provision "shell", path: "generate_hosts.sh"
+    ansiblecontrol.vm.provision "shell", path: ""
     ansiblecontrol.vm.provision "shell", inline: <<-SHELL
 			sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 			sudo systemctl restart sshd
@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
     ansiblenode01.vm.box = "ubuntu/focal64"
     ansiblenode01.vm.hostname = "ansiblenode01.ayalab.local"
     ansiblenode01.vm.network "private_network", ip: "192.168.101.20"
-    ansiblenode01.vm.provision "shell", path: "bootstrap.sh"
+    ansiblenode01.vm.provision "shell", path: "generate_hosts.sh"
     ansiblenode01.vm.provision "shell", inline: <<-SHELL
 			sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 			sudo systemctl restart sshd
@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
     ansiblenode02.vm.box = "ubuntu/focal64"
     ansiblenode02.vm.hostname = "ansiblenode02.ayalab.local"
     ansiblenode02.vm.network "private_network", ip: "192.168.101.30"
-    ansiblenode02.vm.provision "shell", path: "bootstrap.sh"
+    ansiblenode02.vm.provision "shell", path: "generate_hosts.sh"
     ansiblenode02.vm.provision "shell", inline: <<-SHELL
 			sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 			sudo systemctl restart sshd
