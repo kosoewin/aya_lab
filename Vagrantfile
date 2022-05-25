@@ -3,9 +3,9 @@
 
 Vagrant.configure("2") do |config|
   
-  config.vm.provider "virtualbox" do |rs|
-    rs.memory = 2048
-    rs.cpus = 2
+  config.vm.provider "virtualbox" do |ayalab|
+    ayalab.memory = 2048
+    ayalab.cpus = 2
   end
 
   # Will not check for box updates during every startup.
