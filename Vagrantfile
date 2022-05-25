@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     ansiblecontrol.vm.hostname = "ansiblecontrol.ayalab.local"
     ansiblecontrol.vm.network "private_network", ip: "192.168.101.10"
     ansiblecontrol.vm.provision "shell", path: "generate_hosts.sh"
-    ansiblecontrol.vm.provision "shell", path: ""
+    ansiblecontrol.vm.provision "shell", path: "provisioner.sh"
     ansiblecontrol.vm.provision "shell", inline: <<-SHELL
 			sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 			sudo systemctl restart sshd
