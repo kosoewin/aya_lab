@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
                 end
                 ansiblecontrol.vm.provision "shell", path: "generate_hosts.sh"
                 ansiblecontrol.vm.provision "shell", path: "provisioner.sh"
-                ansiblenode01.vm.provision "shell", inline: <<-SHELL
+                ansiblencontrol.vm.provision "shell", inline: <<-SHELL
                         sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
                         sudo systemctl restart sshd
 
@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
                 SHELL
         end
 
-        config.vm.define "ansiblenode02" do |svr|
+        config.vm.define "ansiblenode02" do |ansiblenode02|
                 ansiblenode02.vm.box = "rockylinux/8"
                 ansiblenode02.vm.hostname = "ansiblenode02.ayalab.local"
                 ansiblenode02.vm.network "private_network", ip: "192.168.101.30"
