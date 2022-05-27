@@ -5,7 +5,11 @@
 *	RAM: 8GB (Minimum)
 *	HDD: 10GB of Free Space
 *	OS: Linux / MacOS / Windows
+
+
 Intel VT-X or Virtualization Technology must be enabled
+
+
 
 # Prerequisites
 Please install following softwares -
