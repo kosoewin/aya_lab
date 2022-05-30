@@ -32,7 +32,7 @@ Run following commands in Terminal (Linux / MacOS) or CMD / Git Bash (Windows)
 
 git clone https://github.com/kosoewin/aya_lab.git
 
-cd aya_lab.git
+cd aya_lab
 
 vagrant plugin install vagrant-vbguest --plugin-version 0.21
 
