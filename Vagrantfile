@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |ayalab|
-    ayalab.memory = 2048
+    ayalab.memory = 512
     ayalab.cpus = 2
   end
 
