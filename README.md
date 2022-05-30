@@ -37,3 +37,14 @@ cd aya_lab
 vagrant plugin install vagrant-vbguest --plugin-version 0.21
 
 vagrant up
+
+* check your vagrant boxes running or not
+
+
+vagrant ssh status
+
+vagrant ssh boxname
+
+vagrant halt
+
+vagrant destroy 
