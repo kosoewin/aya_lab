@@ -1,5 +1,5 @@
 ---
-- hosts: ayalab
+- hosts: web-env
   tasks:
     - name: get the storage
       command: df -h
