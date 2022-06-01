@@ -1,5 +1,5 @@
 ---
-- hosts: svr-env
+- hosts: aya-lab
   tasks:
     - name: get the storage
       command: df -h
