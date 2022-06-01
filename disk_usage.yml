@@ -1,5 +1,5 @@
 ---
-- hosts: web-env
+- hosts: svr-env
   tasks:
     - name: get the storage
       command: df -h
