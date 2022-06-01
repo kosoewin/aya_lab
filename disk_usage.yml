@@ -1,5 +1,5 @@
 ---
-- hosts: aya_lab
+- hosts: localhost
   tasks:
     - name: get the storage
       command: df -h
